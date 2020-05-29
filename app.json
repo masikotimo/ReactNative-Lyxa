@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "Lyxa!",
+    "slug": "Lyxa",
+    "privacy": "public",
+    "sdkVersion": "36.0.0",
+    "platforms": ["ios", "android", "web"],
+    "version": "0.0.4.alpha",
+    "orientation": "portrait",
+    "icon": "./assets/icons.png",
+    "splash": {
+      "image": "./assets/OtyoBackground.jpg",
+      "resizeMode": "cover",
+      "backgroundColor": "#220930"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "bundleIdentifier": "ug.lyxa.com",
+      "buildNumber": "0.0.4.alpha",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "ug.timothymasiko.com",
+      "versionCode": 0,
+      "permissions": []
+    }
+  }
+}
