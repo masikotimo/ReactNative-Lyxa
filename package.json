@@ -38,7 +38,7 @@
     "expo-analytics": "^1.0.15",
     "expo-av": "~8.0.0",
     "expo-font": "~8.0.0",
-    "expo-image-picker": "~8.0.1",
+    "expo-image-picker": "^8.0.2",
     "fetch-mock-jest": "^1.1.0-beta.3",
     "jest": "^24.9.0",
     "jest-fetch-mock": "^3.0.1",

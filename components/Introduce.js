@@ -10,16 +10,50 @@ import {
   StyleSheet,
   ScrollView,
   SafeAreaView,
+  TouchableOpacity,
 } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import * as ImagePicker from "expo-image-picker";
+import Constants from "expo-constants";
+import * as Permissions from "expo-permissions";
 
 class Introduction extends Component {
   state = {
     image: null,
+  };
+  componentDidMount() {
+    this.getPermissionAsync();
+  }
+
+  getPermissionAsync = async () => {
+    if (Constants.platform.ios) {
+      const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+      if (status !== "granted") {
+        alert("Sorry, we need camera roll permissions to make this work!");
+      }
+    }
+  };
+
+  _pickImage = async () => {
+    try {
+      let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.All,
+        allowsEditing: true,
+        aspect: [4, 3],
+        quality: 1,
+      });
+      if (!result.cancelled) {
+        this.setState({ image: result.uri });
+      }
+
+      //   console.log(result);
+    } catch (E) {
+      console.log(E);
+    }
   };
 
   render() {
@@ -27,11 +61,6 @@ class Introduction extends Component {
     return (
       <View>
         <StatusBar hidden={false} />
-
-        {/* <ImageBackground
-          source={require("../assets/images/AccountDetailsBg.png")}
-          style={styles.container}
-        > */}
         <ScrollView>
           <KeyboardAwareScrollView
             behavior="padding"
@@ -47,14 +76,22 @@ class Introduction extends Component {
                 This is how you'll show up to others
               </Text>
             </View>
-            <Image
-              style={styles.Accountimage}
-              source={require("../assets/images/AvatarIcon.png")}
-            />
-            <Image
-              style={styles.ChangeAccountimage}
-              source={require("../assets/images/ChangeAvatarIcon.png")}
-            />
+
+            {image === null ? (
+              <Image
+                style={styles.Accountimage}
+                source={require("../assets/images/AvatarIcon.png")}
+              />
+            ) : (
+              <Image source={{ uri: image }} style={styles.Accountimage} />
+            )}
+            <TouchableOpacity onPress={this._pickImage}>
+              <Image
+                style={styles.ChangeAccountimage}
+                source={require("../assets/images/ChangeAvatarIcon.png")}
+              />
+            </TouchableOpacity>
+
             <View style={styles.lowerContentView}>
               <View style={styles.form}>
                 <Text style={styles.TextLabels}>Full Name </Text>
@@ -115,6 +152,7 @@ const styles = StyleSheet.create({
     height: wp("30"),
     marginLeft: wp("34"),
     marginTop: wp("5"),
+    borderRadius: 60,
   },
   ChangeAccountimage: {
     width: wp("10"),
