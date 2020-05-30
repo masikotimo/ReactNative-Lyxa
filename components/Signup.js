@@ -7,6 +7,8 @@ import {
   StatusBar,
   TextInput,
   Button,
+  ScrollView,
+  TouchableOpacity,
 } from "react-native";
 import {
   widthPercentageToDP as wp,
@@ -15,6 +17,8 @@ import {
 import PhoneInput from "react-native-phone-input";
 import { TouchableHighlight } from "react-native-gesture-handler";
 import SegmentedControlTab from "react-native-segmented-control-tab";
+
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export class Signup extends Component {
   constructor(props) {
@@ -54,42 +58,57 @@ export class Signup extends Component {
     return (
       <View style={styles.container}>
         <StatusBar hidden={true} />
-        <Image
-          style={styles.Image}
-          source={require("../assets/images/lyxaShort.jpg")}
-        />
-        <View style={styles.upperView}>
-          <Text style={styles.upperText}> Welcome To Lyxa</Text>
-          <Text style={styles.belowText}>{this.state.btnText}</Text>
-        </View>
-        <View style={styles.tab}>
-          <SegmentedControlTab
-            values={["User", "Event's Provider"]}
-            selectedIndex={this.state.selectedIndex}
-            onTabPress={this.handleIndexChange}
-            tabStyle={styles.tabStyle}
-            tabTextStyle={styles.tabTextStyle}
-            activeTabStyle={styles.activeTabStyle}
-            activeTabTextStyle={styles.activeTabTextStyle}
-            // selectedIndex={0}
-            allowFontScaling={false}
-          />
-        </View>
-        <View style={styles.lowerContentView}>
-          <View style={styles.form}>
-            <Text style={styles.TextLabels}>Phone </Text>
-            {/* <TextInput
-              style={[[styles.TextLabels, styles.TextValues]]}
-            ></TextInput> */}
-            <PhoneInput
-              style={[[styles.TextLabels, styles.TextValues, styles.pullphone]]}
-              ref={(c) => (this._form = c)}
-              initialCountry="ug"
-              value={this.state.countrycode}
-              onSelectCountry={() => this.handlesubmit()}
+        <ScrollView>
+          <KeyboardAwareScrollView
+            behavior="padding"
+            style={{}}
+            resetScrollToCoords={{ x: 0, y: 0 }}
+            contentContainerStyle={styles.container}
+            scrollEnabled={false}
+          >
+            <Image
+              style={styles.Image}
+              source={require("../assets/images/lyxaShort.jpg")}
             />
-          </View>
-        </View>
+            <View style={styles.upperView}>
+              <Text style={styles.upperText}> Welcome To Lyxa</Text>
+              <Text style={styles.belowText}>{this.state.btnText}</Text>
+            </View>
+            <View style={styles.tab}>
+              <SegmentedControlTab
+                values={["User", "Event's Provider"]}
+                selectedIndex={this.state.selectedIndex}
+                onTabPress={this.handleIndexChange}
+                tabStyle={styles.tabStyle}
+                tabTextStyle={styles.tabTextStyle}
+                activeTabStyle={styles.activeTabStyle}
+                activeTabTextStyle={styles.activeTabTextStyle}
+                allowFontScaling={false}
+              />
+            </View>
+            <View style={styles.lowerContentView}>
+              <View style={styles.form}>
+                <Text style={styles.TextLabels}>Phone </Text>
+
+                <PhoneInput
+                  style={[
+                    [styles.TextLabels, styles.TextValues, styles.pullphone],
+                  ]}
+                  ref={(c) => (this._form = c)}
+                  initialCountry="ug"
+                  value={this.state.countrycode}
+                  onSelectCountry={() => this.handlesubmit()}
+                />
+              </View>
+            </View>
+            <TouchableOpacity>
+              <Image
+                style={styles.Accountimage}
+                source={require("../assets/images/red.jpg")}
+              />
+            </TouchableOpacity>
+          </KeyboardAwareScrollView>
+        </ScrollView>
       </View>
     );
   }
@@ -130,17 +149,12 @@ const styles = StyleSheet.create({
     //custom styles
     color: "black",
   },
-  tabBadgeContainerStyle: {
-    //custom styles
-  },
-  activeTabBadgeContainerStyle: {
-    //custom styles
-  },
-  tabBadgeStyle: {
-    //custom styles
-  },
-  activeTabBadgeStyle: {
-    //custom styles
+  Accountimage: {
+    width: wp("15"),
+    height: wp("15"),
+    marginLeft: wp("45%"),
+    marginTop: wp("20%"),
+    borderRadius: 60,
   },
 
   container: {
