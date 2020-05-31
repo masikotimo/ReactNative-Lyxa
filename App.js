@@ -12,6 +12,8 @@ enableScreens();
 import ScreenContainer from "./navigation/ScreenX";
 import Screens from "./navigation/Screens";
 import { Images, articles, argonTheme } from "./constants";
+import Scrollcards from "./components/Scrollcards";
+import Storys from "./components/Story";
 
 // cache app images
 const assetImages = [
@@ -58,6 +60,7 @@ export default class App extends React.Component {
             <Block flex>
               <ScreenContainer />
               {/* <Screens /> */}
+              {/* <Storys /> */}
             </Block>
           </GalioProvider>
         </NavigationContainer>

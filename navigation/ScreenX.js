@@ -9,6 +9,14 @@ import Verification from "../components/Verification";
 import Introduce from "../components/Introduce";
 import Signup from "../components/Signup";
 import Header from "../components/Header";
+
+import {
+  FontAwesome,
+  Feather,
+  MaterialIcons,
+  AntDesign,
+} from "@expo/vector-icons";
+
 class HomeScreen extends React.Component {
   render() {
     return (
@@ -60,16 +68,9 @@ const TabNavigator = createMaterialBottomTabNavigator(
         tabBarLabel: "Introduce",
         tabBarIcon: ({ tintColor }) => (
           <View>
-            <Icon
-              style={[{ color: tintColor }]}
-              size={25}
-              name={"ios-person"}
-            />
+            <MaterialIcons name="event" size={25} color={tintColor} />
           </View>
         ),
-        // activeColor: "#f60c0d",
-        // inactiveColor: "#f65a22",
-        // barStyle: { backgroundColor: "white" },
       },
     },
     Signup: {
@@ -78,16 +79,9 @@ const TabNavigator = createMaterialBottomTabNavigator(
         tabBarLabel: "Welcome",
         tabBarIcon: ({ tintColor }) => (
           <View>
-            <Icon
-              style={[{ color: tintColor }]}
-              size={25}
-              name={"ios-person"}
-            />
+            <AntDesign name="wechat" size={25} color={tintColor} />
           </View>
         ),
-        // activeColor: "#615af6",
-        // inactiveColor: "#46f6d7",
-        // barStyle: { backgroundColor: "white" },
       },
     },
     Verification: {
@@ -96,13 +90,11 @@ const TabNavigator = createMaterialBottomTabNavigator(
         tabBarLabel: "Verification",
         tabBarIcon: ({ tintColor }) => (
           <View>
-            <Icon
-              style={[{ color: tintColor }]}
-              size={25}
-              name={"ios-person"}
-            />
+            <MaterialIcons name="account-circle" size={25} color={tintColor} />
           </View>
         ),
+
+        // labeled: true,
       },
     },
   },
@@ -111,6 +103,7 @@ const TabNavigator = createMaterialBottomTabNavigator(
     activeColor: "black",
     inactiveColor: "grey",
     barStyle: { backgroundColor: "white" },
+    labeled: true,
   }
 );
 

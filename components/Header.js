@@ -124,12 +124,6 @@ class Header extends React.Component {
           placeholder="    Search for friends or users"
           placeholderTextColor={"#8898AA"}
           iconContent={
-            // <Icon
-            //   size={16}
-            //   color={theme.COLORS.MUTED}
-            //   name="microphone"
-            //   family="ArgonExtra"
-            // />
             <FontAwesome name="microphone" size={16} color="black" />
           }
         />
