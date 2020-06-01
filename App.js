@@ -14,6 +14,7 @@ import Screens from "./navigation/Screens";
 import { Images, articles, argonTheme } from "./constants";
 import Scrollcards from "./components/Scrollcards";
 import Storys from "./components/Story";
+import BlurCard from "./components/blurCard";
 
 // cache app images
 const assetImages = [
@@ -58,9 +59,10 @@ export default class App extends React.Component {
         <NavigationContainer>
           <GalioProvider theme={argonTheme}>
             <Block flex>
-              <ScreenContainer />
+              {/* <ScreenContainer /> */}
               {/* <Screens /> */}
               {/* <Storys /> */}
+              <BlurCard />
             </Block>
           </GalioProvider>
         </NavigationContainer>
