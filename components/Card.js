@@ -6,8 +6,13 @@ import {
   Dimensions,
   Image,
   TouchableWithoutFeedback,
+  View,
 } from "react-native";
 import { Block, Text, theme } from "galio-framework";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 
 import { argonTheme } from "../constants";
 
@@ -34,17 +39,13 @@ class Card extends React.Component {
           </Block>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback>
-          <Block flex space="between" style={styles.cardDescription}>
+          <Block style={styles.cardDescription}>
+            <Image
+              style={styles.Accountimage}
+              source={{ uri: item.profileImage }}
+            />
             <Text size={14} style={styles.cardTitle}>
               {item.title}
-            </Text>
-            <Text
-              size={12}
-              muted={!ctaColor}
-              color={ctaColor || argonTheme.COLORS.ACTIVE}
-              bold
-            >
-              {item.cta}
             </Text>
           </Block>
         </TouchableWithoutFeedback>
@@ -63,16 +64,27 @@ Card.propTypes = {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: theme.COLORS.WHITE,
+    backgroundColor: "transparent",
     marginVertical: theme.SIZES.BASE,
     borderWidth: 0,
     minHeight: 114,
-    marginBottom: 16,
+    marginBottom: 1,
+  },
+  Accountimage: {
+    width: wp("10"),
+    height: wp("10"),
+    // marginLeft: wp("34"),
+    marginTop: wp("-15"),
+    borderRadius: 60,
   },
   cardTitle: {
     flex: 1,
     flexWrap: "wrap",
     paddingBottom: 6,
+    marginTop: -30,
+    marginLeft: 40,
+    color: "white",
+    fontWeight: "bold",
   },
   cardDescription: {
     padding: theme.SIZES.BASE / 2,
@@ -83,22 +95,25 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   image: {
-    // borderRadius: 3,
+    borderRadius: 20,
   },
   horizontalImage: {
     height: 122,
     width: "auto",
   },
   horizontalStyles: {
-    borderTopRightRadius: 0,
-    borderBottomRightRadius: 0,
+    // borderTopRightRadius: 0,
+    // borderBottomRightRadius: 0,
+    borderRadius: 20,
   },
   verticalStyles: {
-    borderBottomRightRadius: 0,
-    borderBottomLeftRadius: 0,
+    // borderBottomRightRadius: 0,
+    // borderBottomLeftRadius: 0,
+    borderRadius: 20,
   },
   fullImage: {
-    height: 215,
+    height: 300,
+    borderRadius: 20,
   },
   shadow: {
     shadowColor: theme.COLORS.BLACK,

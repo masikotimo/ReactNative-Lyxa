@@ -80,7 +80,7 @@ class Introduction extends Component {
             {image === null ? (
               <Image
                 style={styles.Accountimage}
-                source={require("../assets/images/AvatarIcon.png")}
+                source={require("../assets/images/camera.png")}
               />
             ) : (
               <Image source={{ uri: image }} style={styles.Accountimage} />
@@ -88,7 +88,7 @@ class Introduction extends Component {
             <TouchableOpacity onPress={this._pickImage}>
               <Image
                 style={styles.ChangeAccountimage}
-                source={require("../assets/images/ChangeAvatarIcon.png")}
+                source={require("../assets/images/redbtn.png")}
               />
             </TouchableOpacity>
 
@@ -116,6 +116,12 @@ class Introduction extends Component {
                   ></TextInput>
                 </SafeAreaView>
               </View>
+              <TouchableOpacity>
+                <Image
+                  style={styles.Accountimagex}
+                  source={require("../assets/images/grey.jpeg")}
+                />
+              </TouchableOpacity>
             </View>
           </KeyboardAwareScrollView>
         </ScrollView>
@@ -152,6 +158,13 @@ const styles = StyleSheet.create({
     height: wp("30"),
     marginLeft: wp("34"),
     marginTop: wp("5"),
+    borderRadius: 60,
+  },
+  Accountimagex: {
+    width: wp("20"),
+    height: wp("20"),
+    marginLeft: wp("30"),
+    marginTop: wp("20%"),
     borderRadius: 60,
   },
   ChangeAccountimage: {

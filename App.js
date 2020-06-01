@@ -46,6 +46,7 @@ export default class App extends React.Component {
   };
 
   render() {
+    console.disableYellowBox = true;
     if (!this.state.isLoadingComplete) {
       return (
         <AppLoading
@@ -59,10 +60,10 @@ export default class App extends React.Component {
         <NavigationContainer>
           <GalioProvider theme={argonTheme}>
             <Block flex>
-              {/* <ScreenContainer /> */}
+              <ScreenContainer />
               {/* <Screens /> */}
               {/* <Storys /> */}
-              <BlurCard />
+              {/* <BlurCard /> */}
             </Block>
           </GalioProvider>
         </NavigationContainer>

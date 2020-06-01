@@ -89,8 +89,9 @@ const styles = StyleSheet.create({
     marginTop: 30,
     // justifyContent: "center",
     // alignItems: "center",
-    // borderWidth: 2,
-    // borderColor: "black",
+    // borderBottomWidth: 2,
+    // borderBottomColor: "grey",
+
     marginLeft: 20,
   },
   text: {

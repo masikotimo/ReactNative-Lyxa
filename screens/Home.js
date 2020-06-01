@@ -1,10 +1,11 @@
 import React from "react";
-import { StyleSheet, Dimensions, ScrollView } from "react-native";
+import { StyleSheet, Dimensions, ScrollView, Text } from "react-native";
 import { Block, theme } from "galio-framework";
 import Storys from "../components/Story";
 import { Card } from "../components";
 import articles from "../constants/articles";
 const { width } = Dimensions.get("screen");
+import BlurCard from "../components/blurCard";
 
 class Home extends React.Component {
   renderArticles = () => {
@@ -13,8 +14,33 @@ class Home extends React.Component {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.articles}
       >
+        <BlurCard />
         <Storys />
         <Block flex>
+          <Block flex row>
+            <Text
+              style={{
+                fontWeight: "bold",
+                fontSize: 20,
+                marginTop: 10,
+                marginLeft: 10,
+              }}
+            >
+              Users Nearby
+            </Text>
+            <Text
+              style={{
+                fontWeight: "bold",
+                // fontSize: 20,
+                marginTop: 15,
+                marginLeft: 150,
+
+                color: "#ff726f",
+              }}
+            >
+              Filter
+            </Text>
+          </Block>
           <Block flex row>
             <Card
               item={articles[0]}
