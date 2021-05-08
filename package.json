@@ -70,7 +70,7 @@
     "redux-persist": "^5.10.0",
     "reflect-metadata": "^0.1.13",
     "styled-components": "^4.4.1",
-    "typeorm": "^0.2.24"
+    "typeorm": "^0.2.25"
   },
   "devDependencies": {
     "@babel/helper-validator-identifier": "^7.10.1",
